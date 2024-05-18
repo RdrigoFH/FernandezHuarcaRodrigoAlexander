@@ -17,3 +17,25 @@
    padding: 20px;
    border-radius: 10px;
 }
+.calculator form input{
+   border:0;
+   outline: 0;
+   width: 50px;
+   height: 50px;
+   border-radius: 5px;
+   margin: 2px;
+   cursor: pointer;
+}
+form .display{
+   display: flex;
+   justify-content: flex-end;
+   margin: 20px 0;
+}
+form .display input{
+   text-align: right;
+   flex: 1;
+   font-size: 35px;
+}
+form input.eq {
+   width: 110px;
+}
