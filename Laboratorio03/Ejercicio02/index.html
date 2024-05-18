@@ -17,7 +17,7 @@
                 <div>
                     <input type="button" value="AC" class="sign" onclick="display.value = ' '">
                     <input type="button" value="&lt-" class="sign" onclick="display.value = display.value.toString().slice(0,-1)">
-                    <input type="button" value="mod" class="sign" display.value += '%'">
+                    <input type="button" value="mod" class="sign" onclick="display.value += '%'">
                     <input type="button" value="/" class="sign" onclick="display.value += '/'">
                 <div>
                     <input type="button" value="7" onclick="show('7')">
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="history">
-        <h3 id = "history" >"History"</h3>
+        <h3 id = "history" >"History" <br></h3>
     </div>
     <script src="index.js"></script>
 </body>
