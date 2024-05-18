@@ -1,7 +1,7 @@
 *{
    margin: 0;
    padding: 0;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: Arial, sans-serif;
    box-sizing: border-box;
 }
 .container{
@@ -17,13 +17,21 @@
    padding: 20px;
    border-radius: 10px;
 }
+.history{
+   background:#ffffff;
+   padding: 10px;
+   border-radius: 10px;
+   margin-left: 50px;
+   height: 400px;
+   width: 250px;
+}
 .calculator form input{
    border:0;
    outline: 0;
    width: 50px;
    height: 50px;
    border-radius: 5px;
-   margin: 2px;
+   margin: 5px;
    cursor: pointer;
 }
 form .display{
@@ -38,4 +46,12 @@ form .display input{
 }
 form input.eq {
    width: 110px;
+   border-radius: 50px;
+}
+form input.sign {
+   border-radius: 50px;
+   background-color: rgb(219, 170, 22);
+}
+input:hover{
+   background-color: #697e99a7;
 }
