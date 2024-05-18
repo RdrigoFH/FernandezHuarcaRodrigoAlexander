@@ -5,6 +5,6 @@ function show(input){
    display.value += input;
 }
 function calculate(){
-   history.textContent += display.value + "= " + eval(display.value);
+   history.innerHTML+= display.value + "= " + eval(display.value) + '<br>';
    display.value = eval(display.value);
 }
