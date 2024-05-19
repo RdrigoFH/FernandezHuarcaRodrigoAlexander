@@ -36,6 +36,42 @@ document.addEventListener('DOMContentLoaded', () => {
      restartBtn.style.display = 'none';
    }
  
+   function handleGuess(letter) {
+     if (guessedLetters.includes(letter)) return;
+ 
+     guessedLetters.push(letter);
+     const letterButtons = document.querySelectorAll('.letter');
+     letterButtons.forEach(btn => {
+       if (btn.textContent === letter) btn.classList.add('disabled');
+     });
+ 
+     if (selectedWord.toUpperCase().includes(letter)) {
+       let newDisplayedWord = '';
+       for (let i = 0; i < selectedWord.length; i++) {
+         newDisplayedWord += (selectedWord[i].toUpperCase() === letter) ? selectedWord[i] : displayedWord[i];
+       }
+       displayedWord = newDisplayedWord;
+       wordDisplay.textContent = displayedWord.split('').join(' ');
+       if (!displayedWord.includes('_')) {
+         messageDisplay.textContent = 'Congratulations! You won!';
+         endGame();
+       }
+     } else {
+       attempts--;
+       attemptsDisplay.textContent = attempts;
+       hangmanImage.src = `images/hangman-${6 - attempts}.svg`; 
+       if (attempts === 0) {
+         messageDisplay.textContent = `Game over! The word was "${selectedWord}".`;
+         endGame();
+       }
+     }
+   }
+ 
+   function endGame() {
+     const letterButtons = document.querySelectorAll('.letter');
+     letterButtons.forEach(btn => btn.classList.add('disabled'));
+     restartBtn.style.display = 'block';
+   }
  
    restartBtn.addEventListener('click', initializeGame);
  
