@@ -12,5 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const numbers = shuffle(Array.from({ length: 10 }, (_, i) => i));
   
-
+  numbers.forEach(number => {
+    const key = document.createElement('div');
+    key.classList.add('key');
+    key.textContent = number;
+    key.addEventListener('click', () => {
+      display.value += number;
+    });
+    keypad.appendChild(key);
+  });
 });
