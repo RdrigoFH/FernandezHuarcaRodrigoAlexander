@@ -43,13 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
      const letterButtons = document.querySelectorAll('.letter');
      letterButtons.forEach(btn => {
        if (btn.textContent === letter) btn.classList.add('disabled');
-     });
+     });  
  
      if (selectedWord.toUpperCase().includes(letter)) {
        let newDisplayedWord = '';
        for (let i = 0; i < selectedWord.length; i++) {
-         newDisplayedWord += (selectedWord[i].toUpperCase() === letter) ? selectedWord[i] : displayedWord[i];
-       }
+        if (selectedWord[i].toUpperCase() === letter) {
+          newDisplayedWord += selectedWord[i];
+        } else {
+          newDisplayedWord += displayedWord[i];
+        }
+      }
        displayedWord = newDisplayedWord;
        wordDisplay.textContent = displayedWord.split('').join(' ');
        if (!displayedWord.includes('_')) {
