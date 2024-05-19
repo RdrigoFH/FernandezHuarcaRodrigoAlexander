@@ -1,0 +1,71 @@
+.container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.display {
+  width: 225px;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 24px;
+  text-align: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;
+  background-color: #f9f9f9;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key:active {
+  background-color: #e0e0e0;
+}
+#img{
+   margin: -10px;
+}
+#element{
+   display: flex;
+   align-items: center;
+}
+input{
+   height: 30px;
+   width: 300px;
+   margin: 15px;
+}
+h3 {
+   margin: 5px;
+}
+#login{
+   border-radius: 15px;
+   border: none;
+   background-color: black;
+   color: aliceblue;
+   padding: 15px;
+   margin-top: 10px;
+}
