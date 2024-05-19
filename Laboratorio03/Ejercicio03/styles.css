@@ -29,7 +29,7 @@ body {
    margin: 5px;
    padding: 10px 15px;
    font-size: 1.5em;
-   background: #007BFF;
+   background: #00ffd9;
    color: white;
    border-radius: 5px;
    cursor: pointer;
@@ -49,7 +49,7 @@ body {
    margin-top: 20px;
    padding: 10px 20px;
    font-size: 1em;
-   background: #28a745;
+   background: #000000;
    color: white;
    border: none;
    border-radius: 5px;
