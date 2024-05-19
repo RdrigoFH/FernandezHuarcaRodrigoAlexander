@@ -1,0 +1,63 @@
+body {
+   font-family: Arial, sans-serif;
+   text-align: center;
+   background-color: #f0f0f0;
+   margin: 0;
+   padding: 20px;
+ }
+ 
+ #game-container {
+   max-width: 600px;
+   margin: 0 auto;
+   background: white;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ }
+ 
+ #word-display {
+   font-size: 2em;
+   letter-spacing: 0.1em;
+ }
+ 
+ #letters-container {
+   margin: 20px 0;
+ }
+ 
+ .letter {
+   display: inline-block;
+   margin: 5px;
+   padding: 10px 15px;
+   font-size: 1.5em;
+   background: #007BFF;
+   color: white;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ 
+ .letter.disabled {
+   background: #cccccc;
+   cursor: not-allowed;
+ }
+ 
+ #remaining-attempts {
+   margin-top: 20px;
+   font-size: 1.2em;
+ }
+ 
+ #restart-btn {
+   margin-top: 20px;
+   padding: 10px 20px;
+   font-size: 1em;
+   background: #28a745;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+ }
+ #hangman-image {
+   max-width: 100%;
+   height: auto;
+   margin: 20px 0;
+ }
+ 
