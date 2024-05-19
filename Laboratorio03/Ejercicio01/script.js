@@ -10,4 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return array;
   }
   
+  const numbers = shuffle(Array.from({ length: 10 }, (_, i) => i));
+  
+
 });
