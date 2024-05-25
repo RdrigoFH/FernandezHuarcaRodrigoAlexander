@@ -29,3 +29,20 @@ button {
    border: none;
    cursor: pointer;
 }
+
+button:hover {
+   background-color: #218838;
+}
+
+ul {
+   list-style: none;
+   padding: 0;
+}
+
+li {
+   background-color: white;
+   padding: 20px;
+   margin-bottom: 10px;
+   border: 1px solid #ddd;
+}
+
