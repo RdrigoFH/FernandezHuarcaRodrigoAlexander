@@ -23,6 +23,7 @@ app.get('/edit/:id', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'edit.html'));
 });
 
+
 app.get('/api/events', (req, res) => {
     res.json(events);
 });
@@ -65,3 +66,6 @@ app.delete('/api/events/:id', (req, res) => {
     res.status(204).send();
 });
 
+app.listen(port, () => {
+    console.log(`App running at http://localhost:${port}`);
+});
