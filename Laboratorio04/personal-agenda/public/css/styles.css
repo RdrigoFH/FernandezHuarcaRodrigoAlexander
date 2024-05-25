@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-   color: #333;
+   color: #1e95ac;
 }
 
 form {
@@ -24,14 +24,14 @@ input, textarea {
 
 button {
    padding: 10px 20px;
-   background-color: #28a745;
+   background-color: #289ca7;
    color: white;
    border: none;
    cursor: pointer;
 }
 
 button:hover {
-   background-color: #218838;
+   background-color: #289ca7;
 }
 
 ul {
