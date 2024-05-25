@@ -1,20 +1,33 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 const app = express();
 const port = 3000;
 
-app.set('view engine', 'ejs');
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 let events = require('./events.json');
 
 app.get('/', (req, res) => {
-    res.render('index', { events: events });
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.post('/add', (req, res) => {
+app.get('/add', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'add.html'));
+});
+
+app.get('/edit/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'edit.html'));
+});
+
+app.get('/api/events', (req, res) => {
+    res.json(events);
+});
+
+app.post('/api/events', (req, res) => {
     const newEvent = {
         id: Date.now(),
         date: req.body.date,
@@ -24,33 +37,32 @@ app.post('/add', (req, res) => {
     };
     events.push(newEvent);
     fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
-    res.redirect('/');
+    res.status(201).json(newEvent);
 });
 
-app.get('/edit/:id', (req, res) => {
-    const event = events.find(e => e.id == req.params.id);
-    res.render('edit', { event: event });
+app.put('/api/events/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = events.findIndex(e => e.id === id);
+    if (index !== -1) {
+        events[index] = {
+            id: id,
+            date: req.body.date,
+            time: req.body.time,
+            title: req.body.title,
+            description: req.body.description
+        };
+        fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
+        res.json(events[index]);
+    } else {
+        res.status(404).json({ error: 'Event not found' });
+    }
 });
 
-app.post('/edit/:id', (req, res) => {
-    const id = req.params.id;
-    const updatedEvent = {
-        id: parseInt(id),
-        date: req.body.date,
-        time: req.body.time,
-        title: req.body.title,
-        description: req.body.description
-    };
-    const index = events.findIndex(e => e.id == id);
-    events[index] = updatedEvent;
+app.delete('/api/events/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    events = events.filter(e => e.id !== id);
     fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
-    res.redirect('/');
-});
-
-app.post('/delete/:id', (req, res) => {
-    events = events.filter(e => e.id != req.params.id);
-    fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
-    res.redirect('/');
+    res.status(204).send();
 });
 
 app.listen(port, () => {
