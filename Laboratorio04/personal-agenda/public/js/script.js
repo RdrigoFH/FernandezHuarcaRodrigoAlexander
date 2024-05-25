@@ -30,7 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
            });
    }
 
-
+   const addEventForm = document.getElementById('addEventForm');
+   if (addEventForm) {
+       addEventForm.addEventListener('submit', function (e) {
+           e.preventDefault();
+           const formData = new FormData(this);
+           const data = Object.fromEntries(formData.entries());
+           fetch('/api/events', {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(data)
+           }).then(() => location.href = '/');
+       });
+   }
 
 
    }
