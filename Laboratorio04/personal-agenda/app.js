@@ -40,3 +40,21 @@ app.post('/api/events', (req, res) => {
     res.status(201).json(newEvent);
 });
 
+app.put('/api/events/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = events.findIndex(e => e.id === id);
+    if (index !== -1) {
+        events[index] = {
+            id: id,
+            date: req.body.date,
+            time: req.body.time,
+            title: req.body.title,
+            description: req.body.description
+        };
+        fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
+        res.json(events[index]);
+    } else {
+        res.status(404).json({ error: 'Event not found' });
+    }
+});
+
