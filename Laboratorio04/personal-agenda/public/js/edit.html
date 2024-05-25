@@ -8,6 +8,16 @@
 </head>
 <body>
     <h1>Edit Event</h1>
+    <form id="editEventForm">
+        <input type="hidden" name="id">
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <input type="text" name="title" required>
+        <textarea name="description" required></textarea>
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="/">Back to Agenda</a>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
