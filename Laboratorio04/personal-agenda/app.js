@@ -27,3 +27,16 @@ app.get('/api/events', (req, res) => {
     res.json(events);
 });
 
+app.post('/api/events', (req, res) => {
+    const newEvent = {
+        id: Date.now(),
+        date: req.body.date,
+        time: req.body.time,
+        title: req.body.title,
+        description: req.body.description
+    };
+    events.push(newEvent);
+    fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
+    res.status(201).json(newEvent);
+});
+
