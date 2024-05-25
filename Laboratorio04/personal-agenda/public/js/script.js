@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
                editEventForm.elements['description'].value = event.description;
            });
 
-
+       editEventForm.addEventListener('submit', function (e) {
+           e.preventDefault();
+           const formData = new FormData(this);
+           const data = Object.fromEntries(formData.entries());
+           fetch(`/api/events/${data.id}`, {
+               method: 'PUT',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(data)
+           }).then(() => location.href = '/');
+       });
    }
 });
