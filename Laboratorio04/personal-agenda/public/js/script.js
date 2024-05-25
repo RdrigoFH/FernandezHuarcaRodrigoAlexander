@@ -44,6 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
        });
    }
 
+   const editEventForm = document.getElementById('editEventForm');
+   if (editEventForm) {
+       const urlParams = new URLSearchParams(window.location.search);
+       const id = urlParams.get('id');
+       fetch(`/api/events`)
+           .then(response => response.json())
+           .then(events => {
+               const event = events.find(e => e.id == id);
+               editEventForm.elements['id'].value = event.id;
+               editEventForm.elements['date'].value = event.date;
+               editEventForm.elements['time'].value = event.time;
+               editEventForm.elements['title'].value = event.title;
+               editEventForm.elements['description'].value = event.description;
+           });
+
 
    }
 });
