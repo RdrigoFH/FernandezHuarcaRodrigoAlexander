@@ -18,6 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
                    eventsList.appendChild(li);
                });
 
+               document.querySelectorAll('.deleteForm').forEach(form => {
+                   form.addEventListener('submit', function (e) {
+                       e.preventDefault();
+                       const id = this.getAttribute('data-id');
+                       fetch(`/api/events/${id}`, {
+                           method: 'DELETE'
+                       }).then(() => location.reload());
+                   });
+               });
+           });
+   }
 
 
 
