@@ -46,3 +46,6 @@ li {
    border: 1px solid #ddd;
 }
 
+form[style="display:inline;"] {
+   display: inline;
+}
