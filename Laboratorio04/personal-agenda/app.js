@@ -58,3 +58,10 @@ app.put('/api/events/:id', (req, res) => {
     }
 });
 
+app.delete('/api/events/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    events = events.filter(e => e.id !== id);
+    fs.writeFileSync('events.json', JSON.stringify(events, null, 2));
+    res.status(204).send();
+});
+
