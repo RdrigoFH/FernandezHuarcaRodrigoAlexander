@@ -1,5 +1,7 @@
 from interpreter import draw
-from chessPictures import knight, bishop
+from chessPictures import *
 
-combined_image = knight.join(bishop)
-draw(combined_image)
+fila1 = square.join(square.negative())
+combinado = fila1.join(fila1)
+draw(combinado.join(combinado))
+

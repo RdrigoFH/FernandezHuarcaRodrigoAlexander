@@ -62,7 +62,14 @@ class Picture:
         """ Devuelve una nueva figura repitiendo la figura actual hacia abajo
             la cantidad de veces que indique el valor de n """
         return Picture(self.img * n)
-
+    
+    def overlay(self, p):
+            """ Devuelve una nueva figura superponiendo la figura p sobre la figura actual """
+            new_img = []
+            for row1, row2 in zip(p.img, self.img):
+                new_row = ''.join([c1 if c1 != ' ' else c2 for c1, c2 in zip(row1, row2)])
+                new_img.append(new_row)
+            return Picture(new_img)
 
 
 
